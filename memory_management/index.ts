@@ -42,13 +42,11 @@ app.get("/", (req, res) => {
     // });
 
     // always remove timeout otherwise it cause memory leaks
-    setTimeout(() => {
+    const timer = setTimeout(() => {
         res.send("Hello World!")
     })
-
+    clearTimeout(timer);
 })
-
-
 
 
 app.listen(port, () => {
