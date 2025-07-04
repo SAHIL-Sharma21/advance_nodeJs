@@ -12,4 +12,15 @@ ticketManger.on('buy', (email, price, timeStamp) => {
     databaseService.save({email, price, timeStamp});  
 });
 
+ticketManger.on('error', () => {
+    console.log("Gracefully handled error!");
+})
+
 ticketManger.buy('sahil@google.com', 3400);
+ticketManger.buy('satvik@google.com', 3400);
+ticketManger.buy('manish@google.com', 3400);
+ticketManger.buy('avinash@google.com', 3400);
+ticketManger.buy('sumit@google.com', 3400);
+
+// gracefully removing the listener is the good way for production
+ticketManger.removeAllListeners();
